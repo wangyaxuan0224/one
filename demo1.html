@@ -5,7 +5,14 @@
 	<title>Your Shopping Cart</title>
 </head>
 <body ng-controller="CartController">
-	
+	<h1>your Order</h1>
+	<div ng-repeat="item in items">
+		<span>{{item.title}}</span>
+		<input type="text" ng-model="item.quality">
+		<span ng-bind="item.price|currency"></span>
+		<span>{{item.price*item.quality|currency}}</span>
+		<button ng-click="remove(index)">remove</button>
+	</div>
 </body>
 <script src="js/angular.min.js"></script>
 <script>
